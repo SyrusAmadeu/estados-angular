@@ -18,9 +18,6 @@ export class CidadesComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id1');
-    this.cidadeService
-      .getCidades(this.id)
-      .subscribe((cidade) => (this.cidade = cidade));
+    
   }
 }

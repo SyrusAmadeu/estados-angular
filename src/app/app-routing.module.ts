@@ -7,7 +7,7 @@ import { UpdateCidadeComponent } from './cidades/update-cidade/update-cidade.com
 import { EstadosComponent } from './estados/estados.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'estados', pathMatch: 'full'},
+  {path: '', redirectTo: 'estados/:id1', pathMatch: 'full'},
   {path: 'estados/:id1', component: EstadosComponent},
   {path: 'estados/:id1/cidades', component: CidadesComponent},
   {path: 'estados/:id1/cidades/:id2', component: CidadesComponent},
