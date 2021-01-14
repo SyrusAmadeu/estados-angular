@@ -2,20 +2,19 @@
 
 
 <div class="container-fluid">
-    <div class="form-group col-7">
+    <div class="form-group">
         <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" [formControl]="estados">
-      <option *ngFor='let estado of estados$ | async'  value="{{estado.id}}"> {{estado.nome}} </option>
-    </select>
+        <select class="form-control" (change)="changeFlag(estados.value)" [formControl]="estados">
+             <option *ngFor="let estado of estados$ | async"  routerLink='/estados/{{id}}' [ngValue]="estado.id"> {{estado.nome}} </option>
+        </select>
     </div>
-
-    <div *ngIf="estados.value == 1">
+    <p>{{id}}</p>
+    <div *ngIf="id == 1">
         <img src="./assets/images/bandeira-rs.gif" alt="" />
     </div>
-    <div *ngIf="estados.value == 2">
+    <div *ngIf="id == 2">
         <img src="./assets/images/bandeira-sc.jpg" alt="" />
     </div>
-    <div *ngIf="estados.value == 3">
+    <div *ngIf="id == 3">
         <img src="./assets/images/bandeira-pr.png" alt="" />
     </div>
-</div>

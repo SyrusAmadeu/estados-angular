@@ -1,0 +1,14 @@
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>População</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cidade of cidades$ | async">
+            <td>{{cidade.nome}}</td>
+            <td>{{cidade.populacao}}</td>
+        </tr>
+    </tbody>
+</table>
