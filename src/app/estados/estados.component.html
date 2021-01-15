@@ -1,20 +1,47 @@
 <h2>Estados</h2>
 
-
 <div class="container-fluid">
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" (change)="changeFlag(estados.value)" [formControl]="estados">
-             <option *ngFor="let estado of estados$ | async"  routerLink='/estados/{{id}}' [ngValue]="estado.id"> {{estado.nome}} </option>
+    <div class="select-estados">
+        <p>Selecione um estado</p>
+        <div class="input-group ">
+            <select id="estados" class="form-control" (change)="changeFlag(estados.value)" [formControl]="estados">
+            <option routerLink='/estados/2' value="2" selected> Santa Catarina </option>
+            <option *ngFor="let estado of estados$ | async"  routerLink='/estados/{{id}}' [ngValue]="estado.id"> {{estado.nome}} </option>
         </select>
+            <div class="input-group-append">
+                <a routerLink="cidades"> <button type="button" class="btn btn-outline-primary" type="button"> Ver cidades</button></a>
+            </div>
+        </div>
+        <div class="bandeira">
+            <div *ngIf="id == '1'">
+                <img src="./assets/images/bandeira-rs.gif" alt="" />
+            </div>
+            <div *ngIf="id == '2'">
+                <img src="./assets/images/bandeira-sc.jpg" alt="" />
+            </div>
+            <div *ngIf="id == '3'">
+                <img src="./assets/images/bandeira-pr.png" alt="" />
+            </div>
+        </div>
     </div>
-    <p>{{id}}</p>
-    <div *ngIf="id == 1">
-        <img src="./assets/images/bandeira-rs.gif" alt="" />
-    </div>
-    <div *ngIf="id == 2">
-        <img src="./assets/images/bandeira-sc.jpg" alt="" />
-    </div>
-    <div *ngIf="id == 3">
-        <img src="./assets/images/bandeira-pr.png" alt="" />
-    </div>
+    <!-- <div class="tabela-estados">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Estado</th>
+                    <th>População</th>
+                    <th>Custo em Dolar</th>
+                    <th>Custo em Real</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let estado of estados$ | async">
+                    <td>{{estado.nome}}</td>
+                    <td>{{estado.populacao * 2}}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
+</div>

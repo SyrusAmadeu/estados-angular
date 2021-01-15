@@ -1,8 +1,22 @@
 h2 {
+    margin-top: 5vh;
     text-align: center;
 }
 
 img {
     width: 380px;
     height: 220px;
+}
+
+.select-estados {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.input-group {
+    width: 50%;
+    left: 25vw;
+    margin-bottom: 5vh;
 }

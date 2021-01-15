@@ -10,11 +10,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CidadesComponent } from './cidades/cidades.component';
 import { CreateCidadeComponent } from './cidades/create-cidade/create-cidade.component';
-import { UpdateCidadeComponent } from './cidades/update-cidade/update-cidade.component';
 import { DeleteCidadeComponent } from './cidades/delete-cidade/delete-cidade.component';
+import { ListarEstadosComponent } from './listar-estados/listar-estados.component';
 
 @NgModule({
-  declarations: [AppComponent, EstadosComponent, NavBarComponent, CidadesComponent, CreateCidadeComponent, UpdateCidadeComponent, DeleteCidadeComponent],
+  declarations: [AppComponent, EstadosComponent, NavBarComponent, CidadesComponent, CreateCidadeComponent, DeleteCidadeComponent, ListarEstadosComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

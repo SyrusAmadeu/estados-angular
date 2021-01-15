@@ -1,19 +1,21 @@
 <h2>Adicionar cidade</h2>
-<div class="container col-2">
+<div class="container">
 
     <form class="form-group" [formGroup]="createCidadeForm" (ngSubmit)="create()">
-        <label for="name">
+        <div class="formulario container-fluid col-md-6">
+            <label for="nome">
             Nome:
-            <input type="text" class="form-control" placeholder="Cidade" formControlName="name">
+            <input type="text" class="form-control" placeholder="Cidade" formControlName="nome">
         </label>
 
-        <label for="date">
+            <label for="populacao">
             População:
-            <input type="number" placeholder="População" class="form-control" formControlName="date" >
+            <input type="number" placeholder="População" class="form-control" formControlName="populacao" >
         </label>
-        <div class="option">
-            <button class="btn" [disabled]="!createCidadeForm.valid" type="submit">Add</button>
-            <button class="btn" (click)="cancel()">Cancel</button>
+        </div>
+        <div class="botoes">
+            <button type="button" class="btn btn-outline-success" [disabled]="!createCidadeForm.valid" type="submit">Add</button>
+            <button type="button" class="btn btn-outline-danger" (click)="cancel()">Cancel</button>
         </div>
 
     </form>

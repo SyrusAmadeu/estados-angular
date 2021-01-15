@@ -10,21 +10,16 @@ import { Cidades, RequestCidade } from '../cidades/cidades';
 export class CidadesService {
   private url = `api/estados/`
 
-  private cidades = new BehaviorSubject<Cidades[]>([]);
-
-  get cidades$() { return this.cidades.asObservable(); }
-
   constructor(private http: HttpClient) { }
 
-  getCidades(id: string): void {
+  getCidades(id: string): Observable<Cidades[]> {
     const cidadeUrl = `${id}/cidades`;
     const _url = `${this.url}${cidadeUrl}`
-    this.http.get<Cidades[]>(_url)
-      .subscribe(response => this.cidades.next(response));
+    return this.http.get<Cidades[]>(_url)
   }
 
   createCidade(id: String, request: FormGroup): Observable<FormGroup> {
-    const cidadeUrl = `${this.url}${id}/cidades/add`;
+    const cidadeUrl = `${this.url}${id}/cidades`;
     return this.http.post<FormGroup>(cidadeUrl, request.value);
   }
 
@@ -33,13 +28,8 @@ export class CidadesService {
     return this.http.get<Cidades>(cidadeUrl)
   }
 
-  updateCidade(id: string, cidadeId: string, request: FormGroup): Observable<FormGroup> {
-    const cidadeUrl = `${this.url}${id}/cidades/update/${cidadeId}`;
-    return this.http.put<FormGroup>(cidadeUrl, request.value);
-  }
-
-  deleteCidade(id: string, cidadeId: string): Observable<any> {
-    const cidadeUrl = `${this.url}${id}/cidades/delete/${cidadeId}`;
+  deleteCidade(id: string, cidadeId: number): Observable<any> {
+    const cidadeUrl = `${this.url}${id}/cidades/${cidadeId}`;
     return this.http.delete<any>(cidadeUrl);
   }
 }

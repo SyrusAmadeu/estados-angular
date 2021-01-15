@@ -1,0 +1,19 @@
+.botoes {
+    text-align: center;
+}
+
+button {
+    margin: 15px;
+}
+
+.tabela {
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    width: 50%;
+}
+
+h2 {
+    text-align: center;
+    margin: 5vh 0 5vh 0;
+}

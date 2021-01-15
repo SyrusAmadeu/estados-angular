@@ -9,18 +9,15 @@ import { CidadesService } from 'src/app/service/cidades.service';
   styleUrls: ['./create-cidade.component.css'],
 })
 export class CreateCidadeComponent implements OnInit {
-  id: string = this.activatedRoute.snapshot.paramMap.get('id');
+  id: string = this.activatedRoute.snapshot.paramMap.get('id1');
 
   validation = [
-    Validators.required,
-    Validators.minLength(4),
-    Validators.maxLength(80),
+    Validators.required
   ];
-  validationDate = [Validators.required, Validators.maxLength(10)];
 
   createCidadeForm = new FormGroup({
-    name: new FormControl('', this.validation),
-    date: new FormControl('', this.validation),
+    nome: new FormControl('', this.validation),
+    populacao: new FormControl('', this.validation),
   });
   constructor(
     private cidadeService: CidadesService,
@@ -32,10 +29,12 @@ export class CreateCidadeComponent implements OnInit {
 
   create() {
     this.cidadeService.createCidade(this.id, this.createCidadeForm).subscribe();
-    this.router.navigate(['estados']);
+    console.log('adding ' + this.createCidadeForm.value.nome)
+    this.router.navigate(['estados/'+this.id+'/cidades']);
+    
   }
 
   cancel() {
-    this.router.navigate(['estados']);
+    this.router.navigate(['estados/'+this.id+'/cidades']);
   }
 }

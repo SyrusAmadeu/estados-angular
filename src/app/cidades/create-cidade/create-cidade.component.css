@@ -1,0 +1,18 @@
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.botoes {
+    text-align: center;
+}
+
+button {
+    margin: 15px;
+}
+
+h2 {
+    margin: 5vh 0 5vh 0;
+    text-align: center;
+}
